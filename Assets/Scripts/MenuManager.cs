@@ -74,6 +74,11 @@ public class MenuManager : MonoBehaviour {
         }
     }
 
+    public void SalirAplicacion()
+    {
+        Application.Quit();
+    }
+
     public void Guia(string explicar)
     {
         switch(explicar)
