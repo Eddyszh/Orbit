@@ -11,6 +11,8 @@ public class Boss : MonoBehaviour {
     public GUIText porcentajeSalud;
     public GameObject murio;
     public StopGame stopGame;
+    public GameManager score;
+    public int scoreValue;
     
     
     void Start()
@@ -18,6 +20,7 @@ public class Boss : MonoBehaviour {
         slider = GameObject.FindWithTag("BossSlider").GetComponent<Slider>();
         porcentajeSalud = GameObject.FindWithTag("BossHealth").GetComponent<GUIText>();
         stopGame = GameObject.FindWithTag("StopGame").GetComponent<StopGame>();
+        score = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         saludTotal = salud;
         VerificarSalud();
     }
@@ -53,6 +56,7 @@ public class Boss : MonoBehaviour {
         if(saludTotal <= 0)
         {
             gameObject.SetActive(false);
+            score.AddScore(scoreValue);
             Instantiate(murio, transform.position, transform.rotation);
             stopGame.Exito();
         }

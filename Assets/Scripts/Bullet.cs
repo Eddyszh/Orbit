@@ -15,4 +15,5 @@ public class Bullet : MonoBehaviour {
         if(impacto.CompareTag("Enemy"))
         Destroy(gameObject);
     }
+
 }
